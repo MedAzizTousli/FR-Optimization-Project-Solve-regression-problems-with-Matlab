@@ -29,20 +29,20 @@ axis equal
 
 %Méthode de Newton
 function [X,i] = newton(a0,A,b,eps)
-% X est une matrice qui contient la trajectoires des it´erations
-% i est le nombre d’it´erations `a la fin de l’algorithme
-g = A*a0-b; % Initialisation du gradient (´evalu´e au point a0)
-a1 = a0-Ang; % Calcul de la premi`ere it´eration (´etape n´ecessaire pour
-              % le calcul de la premi`ere valeur de l’erreur de l’algorithme)
+% X est une matrice qui contient la trajectoires des itérations
+% i est le nombre d’itérations à la fin de l’algorithme
+g = A*a0-b; % Initialisation du gradient (évalué au point a0)
+a1 = a0-Ang; % Calcul de la première itération (étape nécessaire pour
+              % le calcul de la première valeur de l’erreur de l’algorithme)
 X = a0; % stockage du premier point de la trajectoire
-X = [X a1]; % stockage du deuxi`eme point de la trajectoire
+X = [X a1]; % stockage du deuxième point de la trajectoire
 i=0;
 % Coeur de l’algorithme:
 while norm(a0-a1) > eps i=i+1;
   a0 = a1;
   g = A*a0-b;
   a1 = a0-Ang;
-  X = [X a1]; % stockage du i-`eme point de la trajectoire
+  X = [X a1]; % stockage du i-ème point de la trajectoire
 end
 
 %Méthode de gradient à pas constant
@@ -103,15 +103,15 @@ while norm(a0-a1) > eps
 end
 
 %Traçage des trajectoires
-% On suppose qu’on a d´ej`a affich´e les courbes de niveau
-% Calcul des matrices et des vecteurs du probl`eme
+% On suppose qu’on a déjà affiché les courbes de niveau
+% Calcul des matrices et des vecteurs du problème
 M = [ones(size(x)) x];
 A = M’*M;
 b = M’*y;
 % Choix des paramètres des algorithmes
-a0 = [3;1]; % Point de d´epart
-eps = 1e-6; % Tol´erance du crit`ere de convergence
-rho = 0.01; % Le pas de gradient `a pas fixe
+a0 = [3;1]; % Point de départ
+eps = 1e-6; % Tolérance du critère de convergence
+rho = 0.01; % Le pas de gradient à pas fixe
 % Calcul des trajectoires
 X1 = newton(a0,A,b,eps);
 X2 = pas constant(a0,A,b,rho,eps);
@@ -123,7 +123,7 @@ plot(X1(1,:),X1(2,:),’b’);
 plot(X2(1,:),X2(2,:),’r’);
 plot(X3(1,:),X3(2,:),’k’);
 plot(X4(1,:),X4(2,:),’g’);
-legend(’Erreur’,’Newton’,’Pas constant’,’Pas optimal’,’Gradient conjugu´e’)
+legend(’Erreur’,’Newton’,’Pas constant’,’Pas optimal’,’Gradient conjugué’)
 
 %Traçage de la courbe du nombre d'itération en fonction du logarithme de l'erreur
 load partie1
@@ -143,7 +143,7 @@ end
 hold on
 plot(-log10(eps),[N1’ N2’ N3’ N4’],’.-’)
 axis([1 9 0 30])
-legend(’Newton’,’Pas constant’,’Pas optimal’,’Gradient conjugu´e’)
+legend(’Newton’,’Pas constant’,’Pas optimal’,’Gradient conjugué’)
 yticks([1 2 5 10:5:30])
 grid on
 box on
@@ -166,4 +166,4 @@ hold on
 plot(xh,yh)
 xlabel(’x’);
 ylabel(’y’);
-legend(’Nuage de points’,’Droite de r´egression’,’location’,’NW’)
+legend(’Nuage de points’,’Droite de régression’,’location’,’NW’)
