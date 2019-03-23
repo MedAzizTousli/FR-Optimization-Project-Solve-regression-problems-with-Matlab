@@ -1,4 +1,4 @@
-# Projet d'Optimisation
+# [FR] Optimization Project - Solve regression problems with Matlab
 <p> L'objectif de ce projet est d'appliquer les différentes méthodes d'optimisation pour résoudre des problèmes de régression et de voir quelle méthode est plus adaptée pour résoudre un problème donné. </p>
 <h2> À propos </h2>
 </br> Ce projet a été réalisé dans le cadre de la formation des ingénieurs à l'Ecole Polytechnique de Tunisie sous le module "Optimisation" enseigné en première année.
